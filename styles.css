@@ -245,9 +245,16 @@ button { color: inherit; font: inherit; cursor: pointer; }
 
 .charm { padding: 140px var(--gutter); background: linear-gradient(145deg, #fff6d6, var(--paper) 62%, #e1f7ff); border-bottom: 4px solid var(--black); }
 .charm .section-heading { position: relative; }
-.charm-intro { max-width: 640px; margin: 24px 0 0; color: #5d5d58; font-size: 17px; font-weight: 800; }
-.charm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; max-width: 1200px; margin: 0 auto; }
-.charm-card { position: relative; overflow: hidden; min-height: 390px; border: 3px solid var(--black); background: var(--white); box-shadow: 7px 7px 0 var(--blue); }
+.charm-intro-row { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin: 24px 0 0; }
+.charm-intro { max-width: 720px; margin: 0; color: #5d5d58; font-size: 17px; font-weight: 800; }
+.charm-keywords { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; max-width: 480px; }
+.charm-keywords span { padding: 6px 11px; border: 2px solid var(--black); border-radius: 999px; background: var(--white); font-size: 11px; font-weight: 900; }
+.charm-keywords span:nth-child(2n) { background: var(--cyan); }
+.charm-keywords span:nth-child(3n) { background: var(--yellow); }
+.charm-grid { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; gap: 17px; max-width: 1200px; margin: 0 auto; }
+.charm-card { position: relative; overflow: hidden; border: 3px solid var(--black); background: var(--white); box-shadow: 7px 7px 0 var(--blue); }
+.charm-card:first-child { grid-column: span 2; }
+.charm-card:nth-child(6) { grid-column: span 3; }
 .charm-card:nth-child(2), .charm-card:nth-child(5) { box-shadow: 7px 7px 0 var(--red); }
 .charm-card:nth-child(3), .charm-card:nth-child(6) { box-shadow: 7px 7px 0 var(--yellow); }
 .charm-card img { width: 100%; height: 225px; object-fit: cover; border-bottom: 3px solid var(--black); }
@@ -255,6 +262,11 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .charm-card small { color: var(--blue); font-family: Impact, sans-serif; font-size: 10px; letter-spacing: .13em; }
 .charm-card h3 { margin: 8px 0 9px; font-size: 23px; line-height: 1.13; }
 .charm-card p { margin: 0; color: #5d5d58; font-size: 13px; }
+.charm-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; max-width: 1200px; margin: 28px auto 0; }
+.charm-proof article { padding: 24px; border: 3px solid var(--black); background: var(--white); box-shadow: 5px 5px 0 var(--black); }
+.charm-proof small { color: var(--red); font-family: Impact, sans-serif; font-size: 10px; letter-spacing: .12em; }
+.charm-proof h3 { margin: 38px 0 9px; font-size: 22px; line-height: 1.12; }
+.charm-proof p { margin: 0; color: #5d5d58; font-size: 13px; }
 .charm-quote { max-width: 1200px; margin: 28px auto 0; padding: 34px; color: var(--white); background: var(--black); font-size: clamp(28px, 4.3vw, 58px); font-weight: 900; line-height: 1.22; letter-spacing: -.05em; text-align: center; }
 
 .passions-bold { padding: 140px var(--gutter); background: var(--paper); border-bottom: 4px solid var(--black); }
@@ -455,7 +467,12 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .travel-video-frame { border-right: 0; border-bottom: 4px solid var(--black); }
   .travel-video-frame video { min-height: 0; aspect-ratio: 16 / 9; }
   .youth-photo-main { min-height: 0; aspect-ratio: .46; }
+  .charm-intro-row { align-items: flex-start; flex-direction: column; }
+  .charm-keywords { justify-content: flex-start; }
   .charm-grid { grid-template-columns: repeat(2, 1fr); }
+  .charm-card:first-child { grid-column: span 2; }
+.charm-card:nth-child(6) { grid-column: span 3; }
+  .charm-proof { grid-template-columns: 1fr; }
   .interlude-heading { grid-template-columns: 1fr; gap: 20px; }
   .interlude-main { grid-column: span 12; grid-row: auto; aspect-ratio: 1.1; }
   .interlude-small-one, .interlude-small-two, .interlude-small-three { grid-column: span 6; aspect-ratio: 1.1; }
@@ -512,6 +529,7 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .stage-word { font-size: 8rem; }
   .manifesto, .youth-diary, .profile, .charm, .passions-bold, .scouting, .league, .wanted, .gallery-section, .contact { padding-top: 82px; padding-bottom: 82px; }
   .charm-grid { grid-template-columns: 1fr; }
+  .charm-card:first-child, .charm-card:nth-child(6) { grid-column: auto; }
   .youth-photo-main { min-height: 0; aspect-ratio: .46; }
   .youth-photo-pair { grid-template-columns: 1fr; }
   .youth-photo-pair figure { min-height: 250px; }
