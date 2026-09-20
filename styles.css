@@ -171,8 +171,8 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .travel-copy p { margin: 0; color: #5d5d58; font-size: 14px; }
 .travel-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px; }
 .travel-tags span { padding: 6px 10px; border: 2px solid var(--black); background: var(--cyan); font-size: 11px; font-weight: 900; }
-.travel-mini-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-top: 22px; }
-.travel-mini-photos figure { position: relative; overflow: hidden; min-height: 190px; margin: 0; border: 3px solid var(--black); background: var(--cyan); }
+.travel-mini-photos { display: flex; gap: 11px; overflow-x: auto; margin: 22px -6px 0; padding: 0 6px 10px; scroll-snap-type: x mandatory; }
+.travel-mini-photos figure { position: relative; flex: 0 0 138px; overflow: hidden; min-height: 190px; margin: 0; border: 3px solid var(--black); background: var(--cyan); scroll-snap-align: start; }
 .travel-mini-photos img { width: 100%; height: 100%; object-fit: cover; }
 .travel-mini-photos figcaption { position: absolute; right: 0; bottom: 0; left: 0; padding: 30px 10px 9px; color: var(--white); background: linear-gradient(to top, rgba(9,9,9,.8), transparent); font-size: 10px; font-weight: 900; }
 .youth-photo-pair { grid-column: span 7; display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
@@ -235,7 +235,8 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .mode-card small { font-family: Impact, sans-serif; font-size: 11px; letter-spacing: .14em; }
 .mode-card h3 { margin: 5px 0 8px; font-size: clamp(38px, 5vw, 66px); line-height: 1; letter-spacing: -.06em; }
 .mode-card p { max-width: 560px; margin: 0; font-size: 14px; }
-.mode-dog-extra { position: absolute; z-index: 3; right: 22px; bottom: 180px; width: 28%; aspect-ratio: .78; object-fit: cover; border: 3px solid var(--black); box-shadow: 6px 6px 0 var(--red); transform: rotate(7deg); }
+.mode-dog-extra { position: absolute; z-index: 3; right: 22px; bottom: 180px; width: 25%; aspect-ratio: .78; object-fit: cover; border: 3px solid var(--black); box-shadow: 6px 6px 0 var(--red); transform: rotate(7deg); }
+.mode-dog-extra-two { right: auto; left: 20px; bottom: 58px; width: 23%; box-shadow: 6px 6px 0 var(--blue); transform: rotate(-7deg); }
 .mode-index { position: absolute; z-index: 3; top: 22px; right: 24px; font-family: Impact, sans-serif; font-size: 34px; }
 .mode-photo { position: absolute; z-index: 1; top: 20px; left: 20px; width: 37%; height: 56%; object-fit: cover; border: 3px solid var(--black); box-shadow: 8px 8px 0 rgba(9,9,9,.32); transform: rotate(-5deg); }
 .mode-icon { position: absolute; z-index: 2; top: 68px; right: 34px; width: 165px; filter: drop-shadow(8px 9px 0 rgba(9,9,9,.22)); animation: float 4.2s ease-in-out infinite; }
@@ -282,6 +283,12 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .league-line b { color: var(--yellow); font-size: 22px; }
 
 .ten-things { padding: 140px var(--gutter); background: var(--mint); border-bottom: 4px solid var(--black); }
+.meal-feature { display: grid; grid-template-columns: minmax(280px, .7fr) minmax(0, 1.3fr); align-items: center; gap: 28px; max-width: 1200px; margin: 0 auto 24px; overflow: hidden; border: 3px solid var(--black); background: var(--white); box-shadow: 6px 6px 0 var(--black); }
+.meal-feature img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
+.meal-feature > div { padding: 24px 25px 24px 0; }
+.meal-feature small { color: var(--blue); font-family: Impact, sans-serif; letter-spacing: .14em; }
+.meal-feature h3 { margin: 8px 0 10px; font-size: clamp(24px, 3vw, 38px); line-height: 1.08; }
+.meal-feature p { margin: 0; color: #5d5d58; font-size: 13px; }
 .ten-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1200px; margin: 0 auto; }
 .ten-item { min-height: 240px; padding: 20px; border: 3px solid var(--black); background: var(--white); box-shadow: 5px 5px 0 var(--black); }
 .ten-item > span { color: var(--blue); font-family: Impact, sans-serif; font-size: 25px; }
@@ -415,7 +422,6 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .trailer-frame { width: min(100%, 420px); }
   .video-story-large, .video-story-small, .youth-photo, .youth-photo-pair, .travel-story { grid-column: span 12; }
   .travel-story { grid-template-columns: 1fr; }
-  .travel-mini-photos { grid-template-columns: 1fr 1fr; }
   .travel-video-frame { border-right: 0; border-bottom: 4px solid var(--black); }
   .travel-video-frame video { min-height: 0; aspect-ratio: 16 / 9; }
   .youth-photo-main { min-height: 0; aspect-ratio: .46; }
@@ -434,6 +440,8 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .round h3 { margin-top: 55px; }
   .wanted-title { grid-template-columns: 1fr; }
   .wanted-title > span { grid-row: auto; }
+  .meal-feature { grid-template-columns: 1fr; }
+  .meal-feature > div { padding: 22px; }
   .ten-grid { grid-template-columns: repeat(2, 1fr); }
   .wanted-grid { grid-template-columns: 1fr; }
   .wanted-grid h3 { margin-top: 36px; }
@@ -455,7 +463,7 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .quick-bar span { color: var(--blue); font-size: 15px; line-height: 1; }
   .quick-bar b { font-size: 9px; white-space: nowrap; }
   .ten-grid { grid-template-columns: 1fr; }
-  .travel-mini-photos { grid-template-columns: 1fr; }
+  .meal-feature img { min-height: 220px; }
   .ten-item { min-height: 205px; }
   .ten-item h3 { margin-top: 42px; }
   .hero { padding-top: 105px; }
