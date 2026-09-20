@@ -36,6 +36,29 @@
     revealItems.forEach((item) => observer.observe(item));
   }
 
+  const autoVideos = [...document.querySelectorAll('video[data-auto-video]')];
+  if (autoVideos.length && 'IntersectionObserver' in window && !reduceMotion) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting && entry.intersectionRatio >= .55) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: [0, .55, .8] });
+    autoVideos.forEach((video) => {
+      videoObserver.observe(video);
+      video.addEventListener('play', () => {
+        autoVideos.forEach((other) => { if (other !== video) other.pause(); });
+      });
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) autoVideos.forEach((video) => video.pause());
+    });
+  }
+
   if (finePointer && !reduceMotion) {
     const cursor = document.querySelector('.heart-cursor');
     let targetX = innerWidth / 2;

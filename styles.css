@@ -116,6 +116,39 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .light-heading .section-code { color: var(--yellow); }
 .dark-heading .section-code { color: var(--blue); }
 
+.youth-diary { padding: 130px var(--gutter); background: linear-gradient(145deg, #d9f7ff 0%, #f4ecde 53%, #fff4b5 100%); border-bottom: 4px solid var(--black); }
+.youth-heading { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .55fr); align-items: end; gap: 55px; max-width: 1200px; margin: 0 auto 58px; }
+.youth-heading .section-code { grid-column: 1 / -1; color: var(--blue); }
+.youth-heading h2 { margin: 0; font-size: clamp(45px, 6.5vw, 92px); font-weight: 900; line-height: 1.02; letter-spacing: -.075em; }
+.youth-heading h2 em { color: var(--blue); font-style: normal; }
+.youth-heading > p:last-child { margin: 0; color: #4d5960; font-size: 15px; }
+.youth-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-flow: dense; gap: 17px; max-width: 1200px; margin: 0 auto; }
+.video-story { overflow: hidden; border: 4px solid var(--black); background: var(--white); box-shadow: 9px 9px 0 var(--blue); }
+.video-story-large { grid-column: span 7; }
+.video-story-small { grid-column: span 5; box-shadow: 9px 9px 0 var(--yellow); }
+.video-frame { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: var(--black); border-bottom: 4px solid var(--black); }
+.video-frame video { width: 100%; height: 100%; object-fit: cover; background: var(--black); }
+.video-label { position: absolute; z-index: 2; top: 12px; left: 12px; padding: 5px 8px; border: 2px solid var(--black); color: var(--black); background: var(--yellow); font-family: Impact, sans-serif; font-size: 10px; letter-spacing: .08em; pointer-events: none; }
+.video-play-hint { position: absolute; z-index: 2; right: 12px; bottom: 12px; padding: 5px 9px; color: var(--white); background: rgba(9,9,9,.72); font-size: 10px; font-weight: 800; pointer-events: none; }
+.video-copy { padding: 22px; }
+.video-copy small { color: var(--blue); font-family: Impact, sans-serif; font-size: 11px; letter-spacing: .14em; }
+.video-copy h3 { margin: 7px 0 9px; font-size: clamp(24px, 3vw, 38px); line-height: 1.1; letter-spacing: -.045em; }
+.video-copy p { margin: 0; color: #5d5d58; font-size: 14px; }
+.youth-photo { position: relative; grid-column: span 5; overflow: hidden; margin: 0; border: 4px solid var(--black); background: var(--blue); box-shadow: 10px 10px 0 var(--yellow); }
+.youth-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(9,9,9,.76), transparent 45%); pointer-events: none; }
+.youth-photo img { width: 100%; height: 100%; object-fit: cover; }
+.youth-photo figcaption { position: absolute; z-index: 2; right: 18px; bottom: 17px; left: 18px; color: var(--white); }
+.youth-photo figcaption span, .youth-photo figcaption b { display: block; }
+.youth-photo figcaption span { margin-bottom: 6px; color: var(--yellow); font-family: Impact, sans-serif; font-size: 10px; letter-spacing: .12em; }
+.youth-photo figcaption b { font-size: 16px; line-height: 1.4; }
+.youth-photo-main { min-height: 520px; }
+.youth-photo-pair { grid-column: span 7; display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+.youth-photo-pair figure { position: relative; overflow: hidden; min-height: 300px; margin: 0; border: 4px solid var(--black); background: var(--cyan); box-shadow: 7px 7px 0 var(--blue); }
+.youth-photo-pair figure:last-child { box-shadow: 7px 7px 0 var(--yellow); }
+.youth-photo-pair img { width: 100%; height: 100%; object-fit: cover; }
+.youth-photo-pair figcaption { position: absolute; right: 0; bottom: 0; left: 0; padding: 30px 14px 13px; color: var(--white); background: linear-gradient(to top, rgba(9,9,9,.78), transparent); font-size: 12px; font-weight: 800; }
+.youth-quote { grid-column: 1 / -1; margin: 10px 0 0; padding: 44px 25px; color: var(--white); background: var(--black); border: 4px solid var(--black); font-size: clamp(28px, 4.7vw, 62px); font-weight: 900; line-height: 1.23; letter-spacing: -.05em; text-align: center; }
+
 .interlude { padding: 125px var(--gutter); background: var(--paper); border-bottom: 4px solid var(--black); }
 .interlude-heading { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .55fr); align-items: end; gap: 60px; max-width: 1200px; margin: 0 auto 54px; }
 .interlude-heading .section-code { grid-column: 1 / -1; color: var(--red); }
@@ -327,6 +360,9 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .hero-facts { grid-template-columns: repeat(3, 1fr); margin-right: auto; margin-left: auto; }
   .hero-stage { width: min(92vw, 560px); height: 760px; margin-top: 10px; }
   .hero-side-note { display: none; }
+  .youth-heading { grid-template-columns: 1fr; gap: 20px; }
+  .video-story-large, .video-story-small, .youth-photo, .youth-photo-pair { grid-column: span 12; }
+  .youth-photo-main { min-height: 720px; }
   .interlude-heading { grid-template-columns: 1fr; gap: 20px; }
   .interlude-main { grid-column: span 12; grid-row: auto; aspect-ratio: 1.1; }
   .interlude-small-one, .interlude-small-two { grid-column: span 6; aspect-ratio: 1.1; }
@@ -367,7 +403,12 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .hero-badge { top: 4%; right: 0; width: 100px; height: 100px; }
   .hero-badge strong { font-size: 20px; }
   .stage-word { font-size: 8rem; }
-  .manifesto, .profile, .passions-bold, .scouting, .league, .wanted, .gallery-section, .contact { padding-top: 82px; padding-bottom: 82px; }
+  .manifesto, .youth-diary, .profile, .passions-bold, .scouting, .league, .wanted, .gallery-section, .contact { padding-top: 82px; padding-bottom: 82px; }
+  .youth-photo-main { min-height: 540px; }
+  .youth-photo-pair { grid-template-columns: 1fr; }
+  .youth-photo-pair figure { min-height: 250px; }
+  .video-copy { padding: 18px; }
+  .youth-quote { padding: 32px 18px; }
   .section-heading { margin-bottom: 42px; }
   .section-heading h2 { font-size: clamp(39px, 12.5vw, 56px); }
   .profile-collage { min-height: 580px; }
