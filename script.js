@@ -221,7 +221,39 @@
     }
   });
 
-  const photoItems = [...document.querySelectorAll('.photo-item')];
+  const photoItems = [];
+  const sourceIndex = new Map();
+  const rawImageSource = (image) => {
+    const source = image.closest('picture')?.querySelector('source')?.getAttribute('srcset');
+    return (source?.split(' ')[0] || image.getAttribute('src') || '').trim();
+  };
+  const fullImageSource = (image) => {
+    const raw = rawImageSource(image);
+    if (raw.includes('travel-loop.webp')) return raw.replace('travel-loop.webp', 'travel-loop.gif');
+    return raw.replace(/\.webp(?=$|\?)/, '.jpg');
+  };
+  const registerImage = (image) => {
+    const raw = rawImageSource(image);
+    if (!raw) return;
+    let index = sourceIndex.get(raw);
+    if (index === undefined) {
+      index = photoItems.length;
+      sourceIndex.set(raw, index);
+      photoItems.push(image);
+    }
+    image.classList.add('lightbox-enabled');
+    image.setAttribute('role', 'button');
+    image.setAttribute('tabindex', '0');
+    image.setAttribute('aria-label', `查看完整照片：${image.alt || '个人照片'}`);
+    image.addEventListener('click', () => openLightbox(index));
+    image.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(index);
+      }
+    });
+  };
+
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
   const lightboxCount = document.getElementById('lightbox-count');
@@ -232,9 +264,8 @@
   let returnFocus = null;
 
   const updateLightbox = () => {
-    const item = photoItems[activeIndex];
-    const image = item.querySelector('img');
-    lightboxImage.src = item.dataset.full || image.src;
+    const image = photoItems[activeIndex];
+    lightboxImage.src = fullImageSource(image);
     lightboxImage.alt = image.alt;
     lightboxCount.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(photoItems.length).padStart(2, '0')}`;
   };
@@ -257,7 +288,14 @@
     updateLightbox();
   };
 
-  photoItems.forEach((item, index) => item.addEventListener('click', () => openLightbox(index)));
+  document.querySelectorAll('main img').forEach(registerImage);
+  document.querySelectorAll('.photo-item').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      if (event.target.closest('img')) return;
+      const image = button.querySelector('img');
+      if (image && sourceIndex.has(rawImageSource(image))) openLightbox(sourceIndex.get(rawImageSource(image)));
+    });
+  });
   closeButton.addEventListener('click', closeLightbox);
   prevButton.addEventListener('click', () => moveLightbox(-1));
   nextButton.addEventListener('click', () => moveLightbox(1));
