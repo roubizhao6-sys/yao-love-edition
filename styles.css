@@ -47,7 +47,7 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .compact-toggle[aria-pressed="true"] { background: var(--cyan); }
 .share-link .icon { width: 19px; height: 19px; }
 
-.hero { position: relative; min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(430px, .82fr); align-items: center; gap: clamp(35px, 6vw, 100px); overflow: hidden; padding: 120px var(--gutter) 55px; color: var(--white); background: radial-gradient(circle at 84% 20%, rgba(23,92,255,.42), transparent 31rem), linear-gradient(145deg, #121820, var(--black) 58%); }
+.hero { position: relative; min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(470px, .9fr); align-items: center; gap: clamp(35px, 6vw, 100px); overflow: hidden; padding: 120px var(--gutter) 55px; color: var(--white); background: radial-gradient(circle at 84% 20%, rgba(23,92,255,.42), transparent 31rem), linear-gradient(145deg, #121820, var(--black) 58%); }
 .hero::before { content: ""; position: absolute; top: 82px; right: -220px; width: 720px; height: 720px; border: 3px solid var(--yellow); border-radius: 50%; }
 .hero::after { content: ""; position: absolute; left: -120px; bottom: -260px; width: 560px; height: 560px; background: var(--blue); border-radius: 50%; opacity: .9; }
 .hero-grid-lines { position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none; }
@@ -77,15 +77,16 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .voice-intro button.is-playing { background: var(--cyan); }
 .voice-icon { color: var(--red); font-size: 14px; }
 .voice-intro p { margin: 0; color: rgba(255,255,255,.62); font-size: 10px; }
-.hero-stage { position: relative; z-index: 2; width: min(100%, 560px); height: min(78vh, 790px); justify-self: center; }
+.hero-stage { position: relative; z-index: 2; width: min(100%, 620px); height: min(84vh, 880px); justify-self: center; }
 .stage-word { position: absolute; z-index: 0; top: 47%; left: 50%; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,.28); font-family: Impact, "Arial Black", sans-serif; font-size: clamp(6rem, 13vw, 13rem); line-height: .8; letter-spacing: -.04em; transform: translate(-50%, -50%) rotate(90deg); }
-.hero-photo-card { position: absolute; z-index: 3; top: 3%; left: 50%; width: min(66%, 380px); aspect-ratio: .58; overflow: hidden; border: 4px solid var(--white); background: var(--blue); box-shadow: 10px 10px 0 var(--yellow); transform: translateX(-50%) rotate(1deg); }
-.hero-photo-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+.hero-photo-card { position: absolute; z-index: 3; top: 1%; left: 50%; width: min(78%, 455px); aspect-ratio: .58; overflow: hidden; border: 4px solid var(--white); background: var(--blue); box-shadow: 10px 10px 0 var(--yellow); transform: translateX(-50%) rotate(1deg); }
+.hero-photo-card picture { display: block; width: 100%; height: 100%; }
+.hero-photo-card img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 .photo-code { position: absolute; top: 12px; left: 12px; padding: 5px 8px; color: var(--black); background: var(--yellow); font-family: Impact, sans-serif; font-size: 11px; letter-spacing: .08em; }
 .photo-caption { position: absolute; right: 12px; bottom: 12px; left: 12px; display: flex; align-items: end; justify-content: space-between; padding: 12px; border: 2px solid var(--black); color: var(--black); background: rgba(255,255,255,.9); }
 .photo-caption b { font-size: 25px; line-height: 1; }
 .photo-caption small { font-size: 10px; font-weight: 900; }
-.mini-photo { position: absolute; z-index: 4; width: 30%; aspect-ratio: .7; overflow: hidden; border: 3px solid var(--white); background: var(--blue); box-shadow: 7px 7px 0 var(--yellow); }
+.mini-photo { position: absolute; z-index: 4; width: 26%; aspect-ratio: .7; overflow: hidden; border: 3px solid var(--white); background: var(--blue); box-shadow: 7px 7px 0 var(--yellow); }
 .mini-photo img { width: 100%; height: 100%; object-fit: cover; }
 .mini-photo span { position: absolute; left: 6px; bottom: 6px; padding: 3px 6px; color: var(--black); background: var(--white); font-family: Impact, sans-serif; font-size: 9px; }
 .mini-one { bottom: 4%; left: -2%; transform: rotate(-8deg); }
@@ -162,7 +163,7 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .youth-photo-main { align-self: start; min-height: 0; aspect-ratio: .46; }
 .travel-story { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(320px, .72fr); overflow: hidden; border: 4px solid var(--black); background: var(--white); box-shadow: 10px 10px 0 var(--blue); }
 .travel-video-frame { position: relative; min-width: 0; background: var(--black); border-right: 4px solid var(--black); }
-.travel-video-frame video { width: 100%; height: 100%; min-height: 330px; object-fit: cover; background: var(--black); }
+.travel-video-frame video { width: 100%; height: auto; aspect-ratio: 360 / 660; object-fit: contain; background: var(--black); }
 .travel-label { position: absolute; z-index: 2; top: 13px; left: 13px; padding: 5px 9px; color: var(--black); background: var(--yellow); border: 2px solid var(--black); font-family: Impact, sans-serif; font-size: 10px; letter-spacing: .07em; pointer-events: none; }
 .travel-hint { position: absolute; z-index: 2; right: 13px; bottom: 13px; padding: 5px 9px; color: var(--white); background: rgba(9,9,9,.72); font-size: 10px; font-weight: 900; pointer-events: none; }
 .travel-copy { display: flex; flex-direction: column; justify-content: center; padding: 32px; }
@@ -474,7 +475,7 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .solid-button, .line-button { width: 100%; }
   .hero-facts { grid-template-columns: 1fr; }
   .hero-stage { height: 640px; }
-  .hero-photo-card { width: 69%; }
+  .hero-photo-card { width: 82%; }
   .mini-photo { width: 31%; }
   .hero-badge { top: 4%; right: 0; width: 100px; height: 100px; }
   .hero-badge strong { font-size: 20px; }
