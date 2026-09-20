@@ -141,7 +141,7 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .youth-photo figcaption span, .youth-photo figcaption b { display: block; }
 .youth-photo figcaption span { margin-bottom: 6px; color: var(--yellow); font-family: Impact, sans-serif; font-size: 10px; letter-spacing: .12em; }
 .youth-photo figcaption b { font-size: 16px; line-height: 1.4; }
-.youth-photo-main { min-height: 520px; }
+.youth-photo-main { align-self: start; min-height: 0; aspect-ratio: .46; }
 .youth-photo-pair { grid-column: span 7; display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
 .youth-photo-pair figure { position: relative; overflow: hidden; min-height: 300px; margin: 0; border: 4px solid var(--black); background: var(--cyan); box-shadow: 7px 7px 0 var(--blue); }
 .youth-photo-pair figure:last-child { box-shadow: 7px 7px 0 var(--yellow); }
@@ -362,7 +362,7 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .hero-side-note { display: none; }
   .youth-heading { grid-template-columns: 1fr; gap: 20px; }
   .video-story-large, .video-story-small, .youth-photo, .youth-photo-pair { grid-column: span 12; }
-  .youth-photo-main { min-height: 720px; }
+  .youth-photo-main { min-height: 0; aspect-ratio: .46; }
   .interlude-heading { grid-template-columns: 1fr; gap: 20px; }
   .interlude-main { grid-column: span 12; grid-row: auto; aspect-ratio: 1.1; }
   .interlude-small-one, .interlude-small-two { grid-column: span 6; aspect-ratio: 1.1; }
@@ -404,7 +404,7 @@ footer small { color: rgba(255,255,255,.55); font-family: Impact, sans-serif; le
   .hero-badge strong { font-size: 20px; }
   .stage-word { font-size: 8rem; }
   .manifesto, .youth-diary, .profile, .passions-bold, .scouting, .league, .wanted, .gallery-section, .contact { padding-top: 82px; padding-bottom: 82px; }
-  .youth-photo-main { min-height: 540px; }
+  .youth-photo-main { min-height: 0; aspect-ratio: .46; }
   .youth-photo-pair { grid-template-columns: 1fr; }
   .youth-photo-pair figure { min-height: 250px; }
   .video-copy { padding: 18px; }
