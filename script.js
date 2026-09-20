@@ -120,12 +120,12 @@
   const shareButton = document.getElementById('share-page');
   shareButton.addEventListener('click', async () => {
     const data = {
-      title: '垚 · 向阳求偶中｜强烈版',
-      text: '单身营业中，求偶欲望十分强烈。看看这个网站，再来认识我。',
+      title: '垚 · 青春认真求偶中｜潮流心动版',
+      text: '有点运动热血，也认真想认识一个人。看看这个网站，再来认识我。',
       url: pageUrl()
     };
     try {
-      if (navigator.share) {
+      if (navigator.share && window.matchMedia('(pointer: coarse)').matches) {
         await navigator.share(data);
         feedback.textContent = '分享面板已打开。';
       } else {
@@ -143,25 +143,24 @@
   const intensityButton = document.getElementById('intensity-up');
   const intensityValue = document.getElementById('intensity-value');
   const intensityMessage = document.getElementById('intensity-message');
-  let intensity = 10;
+  let intensity = 7;
+  const maxIntensity = 10;
   const messages = {
-    11: '比十分强烈再多一点，十一分强烈。',
-    12: '开始溢出屏幕，请谨慎点按。',
-    13: '求偶雷达已经全功率开启。',
-    14: '已经到了要立刻去加微信的程度。',
-    15: '十五分强烈，系统建议直接联系本人。'
+    8: '有一点心动，但节奏刚刚好。',
+    9: '再靠近一点，先从认真聊天开始。',
+    10: '十分满分，但不用急着加速，慢慢相处就好。'
   };
   intensityButton.addEventListener('click', () => {
-    intensity += 1;
-    intensityValue.textContent = `${intensity} / 10`;
-    intensityMessage.textContent = messages[intensity] || '非常强烈，已经超过计量范围。';
-    for (let i = 0; i < 7; i += 1) {
+    if (intensity < maxIntensity) intensity += 1;
+    intensityValue.textContent = `${String(intensity).padStart(2, '0')} / 10`;
+    intensityMessage.textContent = messages[intensity] || '不着急，先从聊天和相处开始。';
+    for (let i = 0; i < 6; i += 1) {
       const heart = document.createElement('span');
       heart.textContent = '♥';
-      heart.style.cssText = `position:fixed;z-index:999;left:${innerWidth * .72 + (Math.random() - .5) * 190}px;top:${innerHeight * .72}px;color:${i % 2 ? '#ffdc2e' : '#ff1748'};font-size:${14 + Math.random() * 20}px;pointer-events:none;transition:transform .9s ease-out,opacity .9s ease-out`;
+      heart.style.cssText = `position:fixed;z-index:999;left:${innerWidth * .72 + (Math.random() - .5) * 170}px;top:${innerHeight * .72}px;color:${i % 2 ? '#ffdc2e' : '#70dcff'};font-size:${12 + Math.random() * 18}px;pointer-events:none;transition:transform .9s ease-out,opacity .9s ease-out`;
       document.body.appendChild(heart);
       requestAnimationFrame(() => {
-        heart.style.transform = `translate(${(Math.random() - .5) * 220}px, ${-130 - Math.random() * 180}px) rotate(${(Math.random() - .5) * 160}deg)`;
+        heart.style.transform = `translate(${(Math.random() - .5) * 180}px, ${-100 - Math.random() * 150}px) rotate(${(Math.random() - .5) * 140}deg)`;
         heart.style.opacity = '0';
       });
       window.setTimeout(() => heart.remove(), 1000);
