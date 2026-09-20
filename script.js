@@ -232,9 +232,33 @@
     if (raw.includes('travel-loop.webp')) return raw.replace('travel-loop.webp', 'travel-loop.gif');
     return raw.replace(/\.webp(?=$|\?)/, '.jpg');
   };
+  const fitPhotoFrame = (image) => {
+    if (!image.naturalWidth || !image.naturalHeight) return;
+    const ratio = `${image.naturalWidth} / ${image.naturalHeight}`;
+    image.style.aspectRatio = ratio;
+    image.style.height = 'auto';
+    image.style.minHeight = '0';
+    image.style.flex = '0 0 auto';
+    image.style.background = 'transparent';
+    const picture = image.closest('picture');
+    if (picture) {
+      picture.style.height = 'auto';
+      picture.style.aspectRatio = ratio;
+    }
+    if (image.matches('.mode-photo, .mode-dog-extra, .charm-card img, .meal-feature img')) return;
+    const frame = image.closest('.hero-photo-card, .mini-photo, .collage-main, .collage-small, .collage-selfie, .interlude-photo, .youth-photo, .youth-photo-pair figure, .travel-mini-photos figure, .photo-item');
+    if (frame) {
+      frame.style.aspectRatio = 'auto';
+      frame.style.height = 'auto';
+      frame.style.minHeight = '0';
+      frame.style.background = 'transparent';
+    }
+  };
   const registerImage = (image) => {
     const raw = rawImageSource(image);
     if (!raw) return;
+    if (image.complete) fitPhotoFrame(image);
+    else image.addEventListener('load', () => fitPhotoFrame(image), { once: true });
     let index = sourceIndex.get(raw);
     if (index === undefined) {
       index = photoItems.length;
