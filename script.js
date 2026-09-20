@@ -36,28 +36,56 @@
     revealItems.forEach((item) => observer.observe(item));
   }
 
-  const autoVideos = [...document.querySelectorAll('video[data-auto-video]')];
-  if (autoVideos.length && 'IntersectionObserver' in window && !reduceMotion) {
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const video = entry.target;
-        if (entry.isIntersecting && entry.intersectionRatio >= .55) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      });
-    }, { threshold: [0, .55, .8] });
-    autoVideos.forEach((video) => {
-      videoObserver.observe(video);
-      video.addEventListener('play', () => {
-        autoVideos.forEach((other) => { if (other !== video) other.pause(); });
-      });
+  const compactToggle = document.getElementById('compact-toggle');
+  const quickCompact = document.getElementById('quick-compact');
+  const compactLabels = [compactToggle.querySelector('span'), quickCompact.querySelector('b')];
+  const applyCompact = (active, persist = true) => {
+    document.body.classList.toggle('compact', active);
+    compactToggle.setAttribute('aria-pressed', String(active));
+    compactLabels.forEach((label) => { label.textContent = active ? '完整浏览' : '精简浏览'; });
+    if (persist) {
+      try { localStorage.setItem('yao-compact', active ? '1' : '0'); } catch {}
+    }
+  };
+  let savedCompact = false;
+  try { savedCompact = localStorage.getItem('yao-compact') === '1'; } catch {}
+  applyCompact(savedCompact, false);
+  compactToggle.addEventListener('click', () => applyCompact(!document.body.classList.contains('compact')));
+  quickCompact.addEventListener('click', () => applyCompact(!document.body.classList.contains('compact')));
+
+  const videos = [...document.querySelectorAll('video')];
+  videos.forEach((video) => {
+    video.addEventListener('play', () => {
+      videos.forEach((other) => { if (other !== video) other.pause(); });
+      voiceAudio.pause();
     });
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) autoVideos.forEach((video) => video.pause());
-    });
-  }
+  });
+
+  const voiceToggle = document.getElementById('voice-intro-toggle');
+  const voiceAudio = document.getElementById('voice-intro');
+  voiceToggle.addEventListener('click', async () => {
+    if (voiceAudio.paused) {
+      videos.forEach((video) => video.pause());
+      try {
+        await voiceAudio.play();
+      } catch {
+        feedback.textContent = '语音暂时无法播放，请稍后再试。';
+      }
+    } else {
+      voiceAudio.pause();
+    }
+  });
+  voiceAudio.addEventListener('play', () => {
+    voiceToggle.classList.add('is-playing');
+    voiceToggle.setAttribute('aria-pressed', 'true');
+    voiceToggle.querySelector('b').textContent = '正在播放语音简介';
+  });
+  voiceAudio.addEventListener('pause', () => {
+    voiceToggle.classList.remove('is-playing');
+    voiceToggle.setAttribute('aria-pressed', 'false');
+    voiceToggle.querySelector('b').textContent = '播放 16 秒语音简介';
+  });
+  voiceAudio.addEventListener('ended', () => voiceAudio.currentTime = 0);
 
   if (finePointer && !reduceMotion) {
     const cursor = document.querySelector('.heart-cursor');
@@ -141,10 +169,11 @@
   });
 
   const shareButton = document.getElementById('share-page');
-  shareButton.addEventListener('click', async () => {
+  const quickShare = document.getElementById('quick-share');
+  const sharePage = async () => {
     const data = {
       title: '垚 · 青春认真求偶中｜潮流心动版',
-      text: '有点运动热血，也认真想认识一个人。看看这个网站，再来认识我。',
+      text: '青春多一点：18 张照片、2 段视频和一支 28 秒预告片。先做朋友，再看心动。',
       url: pageUrl()
     };
     try {
@@ -161,7 +190,9 @@
       feedback.textContent = '网站链接已复制，可以粘贴到微信发送。';
     }
     window.setTimeout(() => { feedback.textContent = ''; }, 3200);
-  });
+  };
+  shareButton.addEventListener('click', sharePage);
+  quickShare.addEventListener('click', sharePage);
 
   const intensityButton = document.getElementById('intensity-up');
   const intensityValue = document.getElementById('intensity-value');

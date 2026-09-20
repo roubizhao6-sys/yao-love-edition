@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090909">
-  <meta name="description" content="垚 · 青春认真求偶中｜喜欢篮球、足球、C 罗、狗狗和自拍，加入青春照片与生活视频，也想认真认识一个聊得来的人。">
+  <meta name="description" content="垚 · 青春认真求偶中｜18 张照片、2 段视频和 28 秒青春预告片，记录篮球、足球、C 罗、狗狗和生活，也想认真认识一个聊得来的人。">
   <meta name="robots" content="noindex,nofollow">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="垚 · 青春认真求偶中｜潮流心动版">
-  <meta property="og:description" content="青春多一点：照片记录笑，视频留住风。运动热血和真诚柔软都在这里，先做朋友，再看心动。">
+  <meta property="og:description" content="18 张照片、2 段视频和 28 秒预告片。照片记录笑，视频留住风，运动热血和真诚柔软都在这里。">
   <meta property="og:url" content="https://roubizhao6-sys.github.io/yao-love-edition/">
-  <meta property="og:image" content="https://roubizhao6-sys.github.io/yao-love-edition/assets/social-share.jpg">
+  <meta property="og:image" content="https://roubizhao6-sys.github.io/yao-love-edition/assets/social-share-v2.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -47,6 +47,7 @@
       <a href="#league">求偶联赛</a>
       <a href="#gallery">照片宇宙</a>
     </nav>
+    <button class="compact-toggle" id="compact-toggle" type="button" aria-pressed="false"><span>精简浏览</span></button>
     <a class="share-link" href="#contact"><span>认识一下</span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
   </header>
 
@@ -67,24 +68,29 @@
         <p class="hero-lead">不急着定义关系，<br>先从一个聊得来、相处舒服的人开始。</p>
         <div class="hero-actions">
           <a class="solid-button" href="#profile">查看我的档案 <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-          <a class="line-button" href="#youth-diary">看青春影像</a>
+          <a class="line-button" href="#trailer">看 28 秒预告片</a>
         </div>
         <div class="hero-facts">
           <div><small>POSITION</small><strong>篮球 / 足球</strong></div>
           <div><small>IDOL</small><strong>C 罗</strong></div>
           <div><small>WITH ME</small><strong>狗狗</strong></div>
         </div>
+        <div class="voice-intro reveal">
+          <button id="voice-intro-toggle" type="button" aria-pressed="false"><span class="voice-icon">◉</span><b>播放 16 秒语音简介</b></button>
+          <p>自动朗读版，真人声音以后也可以替换。</p>
+          <audio id="voice-intro" preload="none" src="assets/audio/voice-intro.m4a"></audio>
+        </div>
       </div>
 
       <div class="hero-stage" data-parallax>
         <span class="stage-word" aria-hidden="true">SINGLE</span>
         <div class="hero-photo-card">
-          <img src="assets/photos/feature-01.jpg" alt="垚的最新自拍" width="967" height="2100" decoding="async">
+          <img src="assets/photos/feature-01.webp" alt="垚的最新自拍" width="967" height="2100" decoding="async">
           <span class="photo-code">SELFIE / FRONT</span>
           <div class="photo-caption"><b>垚</b><small>最新自拍 · 认真认识中</small></div>
         </div>
-        <div class="mini-photo mini-one"><img src="assets/photos/hero.jpg" alt="" loading="lazy"><span>LOOK 02</span></div>
-        <div class="mini-photo mini-two"><img src="assets/photos/feature-02.jpg" alt="" loading="lazy"><span>LOOK 03</span></div>
+        <div class="mini-photo mini-one"><img src="assets/photos/hero.webp" alt="" loading="lazy"><span>LOOK 02</span></div>
+        <div class="mini-photo mini-two"><img src="assets/photos/feature-02.webp" alt="" loading="lazy"><span>LOOK 03</span></div>
         <div class="hero-badge"><span>认真</span><strong>求偶</strong><i>♥</i></div>
       </div>
 
@@ -98,7 +104,7 @@
       </div>
     </section>
 
-    <section class="manifesto" id="manifesto">
+    <section class="manifesto js-compact-hide" id="manifesto">
       <div class="manifesto-number" aria-hidden="true">07</div>
       <div class="manifesto-copy">
         <p class="section-code reveal">01 / MANIFESTO</p>
@@ -118,11 +124,28 @@
         <h2 class="reveal">青春多一点，<br><em>把普通日子拍成电影。</em></h2>
         <p class="reveal">照片负责定格，视频负责留住当时的风、笑声和没说出口的心情。</p>
       </div>
+      <div class="trailer-feature reveal" id="trailer">
+        <div class="trailer-copy">
+          <p class="section-code">28 SEC / PORTRAIT FILM</p>
+          <h3>先看一段，<br><em>28 秒的我。</em></h3>
+          <p>自拍、出发、看台、朋友和在路上。青春不必讲得很复杂，几秒钟就能感受到。</p>
+          <div class="trailer-tags"><span>自拍开场</span><span>视频混剪</span><span>青春字幕</span><span>竖屏观看</span></div>
+        </div>
+        <div class="trailer-frame">
+          <video playsinline controls preload="none" poster="assets/photos/trailer-poster.webp" aria-label="28 秒青春预告片">
+            <source src="assets/videos/youth-trailer-28s.mp4" type="video/mp4">
+            浏览器不支持视频播放。
+          </video>
+          <span class="trailer-badge">28 SEC / 9:16</span>
+          <span class="trailer-play-note">点击播放预告片</span>
+        </div>
+      </div>
       <div class="youth-grid">
         <article class="video-story video-story-large reveal">
           <div class="video-frame">
-            <video data-auto-video playsinline muted loop controls preload="metadata" poster="assets/photos/video-01-poster.jpg" aria-label="青春视频日记一">
+            <video class="youth-video" playsinline controls preload="none" poster="assets/photos/video-01-poster.webp" aria-label="青春视频日记一">
               <source src="assets/videos/youth-01.mp4" type="video/mp4">
+              <track kind="captions" src="assets/captions/youth-01.zh.vtt" srclang="zh" label="中文青春字幕">
             </video>
             <span class="video-label">VIDEO 01 · 00:16</span>
             <span class="video-play-hint">点击播放 · 青春有声</span>
@@ -131,14 +154,15 @@
         </article>
 
         <figure class="youth-photo youth-photo-main reveal">
-          <img src="assets/photos/youth-01.jpg" alt="垚新增的户外照片" loading="lazy">
+          <img src="assets/photos/youth-01.webp" alt="垚新增的户外照片" loading="lazy">
           <figcaption><span>NEW PHOTO / 13</span><b>灯光亮起的时候，青春也有了回声。</b></figcaption>
         </figure>
 
         <article class="video-story video-story-small reveal">
           <div class="video-frame">
-            <video data-auto-video playsinline muted loop controls preload="metadata" poster="assets/photos/video-02-poster.jpg" aria-label="青春视频日记二">
+            <video class="youth-video" playsinline controls preload="none" poster="assets/photos/video-02-poster.webp" aria-label="青春视频日记二">
               <source src="assets/videos/youth-02.mp4" type="video/mp4">
+              <track kind="captions" src="assets/captions/youth-02.zh.vtt" srclang="zh" label="中文青春字幕">
             </video>
             <span class="video-label">VIDEO 02 · 00:29</span>
             <span class="video-play-hint">点击播放 · 在路上</span>
@@ -147,8 +171,8 @@
         </article>
 
         <div class="youth-photo-pair reveal">
-          <figure><img src="assets/photos/youth-02.jpg" alt="垚新增的青春照片" loading="lazy"><figcaption>朋友、笑声，还有一起看过的风景。</figcaption></figure>
-          <figure><img src="assets/photos/youth-03.jpg" alt="垚新增的青春照片" loading="lazy"><figcaption>普通的一天，也值得被认真记录。</figcaption></figure>
+          <figure><img src="assets/photos/youth-02.webp" alt="垚新增的青春照片" loading="lazy"><figcaption>朋友、笑声，还有一起看过的风景。</figcaption></figure>
+          <figure><img src="assets/photos/youth-03.webp" alt="垚新增的青春照片" loading="lazy"><figcaption>普通的一天，也值得被认真记录。</figcaption></figure>
         </div>
 
         <blockquote class="youth-quote reveal">“青春不是永远热闹，<br>是还愿意对明天好奇。”</blockquote>
@@ -162,8 +186,8 @@
       </div>
       <div class="profile-layout">
         <div class="profile-collage reveal">
-          <div class="collage-main"><img src="assets/photos/archive-01.jpg" alt="垚的照片" loading="lazy"><span>PORTRAIT 01</span></div>
-          <div class="collage-small"><img src="assets/photos/archive-04.jpg" alt="垚的生活照片" loading="lazy"><span>LIFE</span></div>
+          <div class="collage-main"><img src="assets/photos/archive-01.webp" alt="垚的照片" loading="lazy"><span>PORTRAIT 01</span></div>
+          <div class="collage-small"><img src="assets/photos/archive-04.webp" alt="垚的生活照片" loading="lazy"><span>LIFE</span></div>
           <div class="collage-ticket"><b>NO. 07</b><small>认真求偶选手</small><i>♥</i></div>
         </div>
         <div class="profile-card reveal">
@@ -183,45 +207,45 @@
       </div>
     </section>
 
-    <section class="interlude" id="interlude">
+    <section class="interlude js-compact-hide" id="interlude">
       <div class="interlude-heading">
         <p class="section-code reveal">04 / OFF GUARD</p>
         <h2 class="reveal">不只是摆拍，<br><em>也是生活原本的样子。</em></h2>
         <p class="reveal">把几张照片放在不同章节里。每翻过一段，再多认识我一点。</p>
       </div>
       <div class="interlude-grid">
-        <figure class="interlude-photo interlude-main reveal"><img src="assets/photos/feature-03.jpg" alt="垚的照片" loading="lazy"><figcaption><span>12 / ON STAGE</span><b>认真表达的时候</b></figcaption></figure>
-        <figure class="interlude-photo interlude-small-one reveal"><img src="assets/photos/archive-03.jpg" alt="垚的生活照片" loading="lazy"><figcaption><span>03 / DAILY</span><b>日常状态</b></figcaption></figure>
-        <figure class="interlude-photo interlude-small-two reveal"><img src="assets/photos/archive-07.jpg" alt="垚的生活照片" loading="lazy"><figcaption><span>07 / OUTDOOR</span><b>出去走走</b></figcaption></figure>
+        <figure class="interlude-photo interlude-main reveal"><img src="assets/photos/feature-03.webp" alt="垚的照片" loading="lazy"><figcaption><span>12 / ON STAGE</span><b>认真表达的时候</b></figcaption></figure>
+        <figure class="interlude-photo interlude-small-one reveal"><img src="assets/photos/archive-03.webp" alt="垚的生活照片" loading="lazy"><figcaption><span>03 / DAILY</span><b>日常状态</b></figcaption></figure>
+        <figure class="interlude-photo interlude-small-two reveal"><img src="assets/photos/archive-07.webp" alt="垚的生活照片" loading="lazy"><figcaption><span>07 / OUTDOOR</span><b>出去走走</b></figcaption></figure>
       </div>
     </section>
 
-    <section class="passions-bold" id="passions">
+    <section class="passions-bold js-compact-hide" id="passions">
       <div class="section-heading dark-heading">
         <p class="section-code reveal">05 / FOUR MODES</p>
         <h2 class="reveal">我的四种高能模式，<br><em>每一种都想分你一半。</em></h2>
       </div>
       <div class="mode-grid">
         <article class="mode-card mode-basketball reveal">
-          <img class="mode-photo" src="assets/photos/archive-05.jpg" alt="垚的运动生活照片" loading="lazy">
+          <img class="mode-photo" src="assets/photos/archive-05.webp" alt="垚的运动生活照片" loading="lazy">
           <span class="mode-index">01</span>
           <svg class="mode-icon" aria-hidden="true"><use href="#icon-basketball"/></svg>
           <div><small>COURT MODE</small><h3>篮球</h3><p>奔跑、对抗、团队感。喜欢球场上的热血，也喜欢进球之后第一个看向在意的人。</p></div>
         </article>
         <article class="mode-card mode-football reveal">
-          <img class="mode-photo" src="assets/photos/archive-06.jpg" alt="垚的户外生活照片" loading="lazy">
+          <img class="mode-photo" src="assets/photos/archive-06.webp" alt="垚的户外生活照片" loading="lazy">
           <span class="mode-index">02</span>
           <svg class="mode-icon" aria-hidden="true"><use href="#icon-football"/></svg>
           <div><small>CR7 MODE</small><h3>足球 × C 罗</h3><p>自律、坚韧、关键时刻站出来。喜欢 C 罗，也想像他一样，对热爱的事情一直全力以赴。</p></div>
         </article>
         <article class="mode-card mode-dog reveal">
-          <img class="mode-photo" src="assets/photos/archive-02.jpg" alt="垚的近照" loading="lazy">
+          <img class="mode-photo" src="assets/photos/archive-02.webp" alt="垚的近照" loading="lazy">
           <span class="mode-index">03</span>
           <svg class="mode-icon" aria-hidden="true"><use href="#icon-paw"/></svg>
           <div><small>SOFT MODE</small><h3>狗狗</h3><p>再糟糕的一天，也会在狗狗摇尾巴的瞬间被治愈。希望你也不排斥毛茸茸的快乐。</p></div>
         </article>
         <article class="mode-card mode-selfie reveal">
-          <img class="mode-photo" src="assets/photos/archive-08.jpg" alt="垚的生活照片" loading="lazy">
+          <img class="mode-photo" src="assets/photos/archive-08.webp" alt="垚的生活照片" loading="lazy">
           <span class="mode-index">04</span>
           <svg class="mode-icon" aria-hidden="true"><use href="#icon-camera"/></svg>
           <div><small>CAMERA MODE</small><h3>自拍与记录</h3><p>开心要拍，约会要拍，普通日常也想拍。以后镜头里，希望能多一个你。</p></div>
@@ -229,7 +253,7 @@
       </div>
     </section>
 
-    <section class="scouting" id="scouting">
+    <section class="scouting js-compact-hide" id="scouting">
       <div class="section-heading dark-heading">
         <p class="section-code reveal">06 / SCOUTING REPORT</p>
         <h2 class="reveal">心动简历公开，<br><em>所有数值仅供参考。</em></h2>
@@ -256,7 +280,7 @@
       </div>
     </section>
 
-    <section class="league" id="league">
+    <section class="league js-compact-hide" id="league">
       <div class="league-bg" aria-hidden="true">LOVE<br>LEAGUE</div>
       <div class="section-heading light-heading">
         <p class="section-code reveal">07 / DATING LEAGUE</p>
@@ -270,6 +294,25 @@
       <div class="league-line" aria-hidden="true"><span>START</span><i></i><b>WIN</b></div>
     </section>
 
+    <section class="ten-things js-compact-hide" id="ten-things">
+      <div class="section-heading dark-heading">
+        <p class="section-code reveal">08 / TEN LITTLE THINGS</p>
+        <h2 class="reveal">如果可以，<br><em>想和你一起做这 10 件小事。</em></h2>
+      </div>
+      <div class="ten-grid">
+        <article class="ten-item reveal"><span>01</span><h3>一起看一场球</h3><p>篮球、足球都可以，最好还能一起为 C 罗喊一次。</p></article>
+        <article class="ten-item reveal"><span>02</span><h3>一起遛狗</h3><p>看狗狗在前面跑，我们在后面慢慢聊天。</p></article>
+        <article class="ten-item reveal"><span>03</span><h3>一起拍很多照片</h3><p>不用每张都好看，真实和开心最重要。</p></article>
+        <article class="ten-item reveal"><span>04</span><h3>一起出门走走</h3><p>去没去过的地方，也重新认识熟悉的生活。</p></article>
+        <article class="ten-item reveal"><span>05</span><h3>一起吃好吃的</h3><p>喜欢的店可以重复去，新店也一起试。</p></article>
+        <article class="ten-item reveal"><span>06</span><h3>一起看一场电影</h3><p>看完还能讨论很久，比电影本身更重要。</p></article>
+        <article class="ten-item reveal"><span>07</span><h3>一起记录普通日常</h3><p>用照片和视频，把平凡日子变成连续的青春片。</p></article>
+        <article class="ten-item reveal"><span>08</span><h3>一起聊到很晚</h3><p>认真听，也坦诚说，不靠猜来理解彼此。</p></article>
+        <article class="ten-item reveal"><span>09</span><h3>一起变得更自律</h3><p>运动、作息或一个小目标，互相提醒，不互相内耗。</p></article>
+        <article class="ten-item reveal"><span>10</span><h3>一起把日子变有趣</h3><p>没有固定答案，只要两个人都愿意参与。</p></article>
+      </div>
+    </section>
+
     <section class="wanted" id="wanted">
       <div class="wanted-poster">
         <div class="wanted-title reveal"><span>WANTED</span><strong>诚招一位</strong><em>能一起看球，也一起生活的人。</em></div>
@@ -278,6 +321,10 @@
           <article class="reveal"><span>02</span><h3>热爱生活</h3><p>喜欢小动物很加分，对球类运动不排斥更加分。</p></article>
           <article class="reveal"><span>03</span><h3>愿意陪伴</h3><p>不要求每天都轰轰烈烈，但愿意在普通日子里互相回应。</p></article>
         </div>
+        <div class="relationship-note reveal">
+          <small>我期待的关系</small>
+          <p>真诚、情绪稳定、愿意沟通，不冷战、不消失。可以一起运动、遛狗、旅行，也可以安静地待在一起。先从朋友开始，舒服和安心比速度重要。</p>
+        </div>
         <div class="wanted-bottom reveal">
           <div><small>本人提供</small><p>爱笑 · 大方 · 会打球 · 有狗狗 · 能拍照 · 认真陪伴</p></div>
           <a class="solid-button" href="#contact">去微信入口 <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
@@ -285,23 +332,23 @@
       </div>
     </section>
 
-    <section class="gallery-section" id="gallery">
+    <section class="gallery-section js-compact-hide" id="gallery">
       <div class="section-heading light-heading">
-        <p class="section-code reveal">08 / LAST FRAMES</p>
+        <p class="section-code reveal">09 / LAST FRAMES</p>
         <h2 class="reveal">最后三张，<br><em>留给愿意继续了解的人。</em></h2>
       </div>
       <div class="gallery-toolbar reveal"><span>最后的 03 张</span><p>其他照片已经散落在前面不同章节里，不再集中堆在一起。</p></div>
       <div class="photo-universe" id="photo-universe">
-        <button class="photo-item span-n reveal" type="button" data-full="assets/photos/archive-09.jpg" aria-label="放大照片 13"><img src="assets/photos/archive-09.jpg" alt="垚的生活照片 13" loading="lazy"><span><b>13</b><i>NIGHT</i></span></button>
-        <button class="photo-item span-o reveal" type="button" data-full="assets/photos/archive-10.jpg" aria-label="放大照片 14"><img src="assets/photos/archive-10.jpg" alt="垚的生活照片 14" loading="lazy"><span><b>14</b><i>COOL</i></span></button>
-        <button class="photo-item span-p reveal" type="button" data-full="assets/photos/archive-11.jpg" aria-label="放大照片 15"><img src="assets/photos/archive-11.jpg" alt="垚的生活照片 15" loading="lazy"><span><b>15</b><i>CONTINUE</i></span></button>
+        <button class="photo-item span-n reveal" type="button" data-full="assets/photos/archive-09.webp" aria-label="放大照片 13"><img src="assets/photos/archive-09.webp" alt="垚的生活照片 13" loading="lazy"><span><b>13</b><i>NIGHT</i></span></button>
+        <button class="photo-item span-o reveal" type="button" data-full="assets/photos/archive-10.webp" aria-label="放大照片 14"><img src="assets/photos/archive-10.webp" alt="垚的生活照片 14" loading="lazy"><span><b>14</b><i>COOL</i></span></button>
+        <button class="photo-item span-p reveal" type="button" data-full="assets/photos/archive-11.webp" aria-label="放大照片 15"><img src="assets/photos/archive-11.webp" alt="垚的生活照片 15" loading="lazy"><span><b>15</b><i>CONTINUE</i></span></button>
       </div>
     </section>
 
     <section class="contact" id="contact">
       <div class="contact-marquee" aria-hidden="true"><span>认真一点 · 真诚一点 · 从朋友开始 · </span></div>
       <div class="contact-inner">
-        <p class="section-code reveal">09 / FINAL CALL</p>
+        <p class="section-code reveal">10 / FINAL CALL</p>
         <h2 class="reveal">看到这里还觉得不错，<br><em>微信直接加。</em></h2>
         <p class="contact-lead reveal">不用复杂的暗号。备注一句“在网站看到你”，剩下的从正常聊天开始。</p>
         <div class="wechat-panel reveal">
@@ -323,6 +370,13 @@
     <p>青春 · 运动 · 真诚 · 认真认识新朋友</p>
     <small>YAO / LOVE EDITION · <span id="year"></span></small>
   </footer>
+
+  <nav class="quick-bar" aria-label="快捷操作">
+    <a href="#youth-diary"><span>▶</span><b>看视频</b></a>
+    <button id="quick-share" type="button"><span>↗</span><b>分享网站</b></button>
+    <button id="quick-compact" type="button"><span>◫</span><b>精简浏览</b></button>
+    <a href="#top"><span>↑</span><b>回到顶部</b></a>
+  </nav>
 
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="照片预览" hidden>
     <button class="lightbox-close" id="lightbox-close" type="button" aria-label="关闭"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button>
