@@ -262,12 +262,23 @@
   const nextButton = document.getElementById('lightbox-next');
   let activeIndex = 0;
   let returnFocus = null;
+  let lightboxLoadToken = 0;
 
   const updateLightbox = () => {
     const image = photoItems[activeIndex];
-    lightboxImage.src = fullImageSource(image);
+    const previewSource = rawImageSource(image);
+    const originalSource = fullImageSource(image);
+    const token = ++lightboxLoadToken;
+    lightboxImage.src = previewSource;
     lightboxImage.alt = image.alt;
     lightboxCount.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(photoItems.length).padStart(2, '0')}`;
+    if (originalSource && originalSource !== previewSource) {
+      const preload = new Image();
+      preload.onload = () => {
+        if (token === lightboxLoadToken) lightboxImage.src = originalSource;
+      };
+      preload.src = originalSource;
+    }
   };
   const openLightbox = (index) => {
     activeIndex = index;
